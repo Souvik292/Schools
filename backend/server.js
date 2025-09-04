@@ -12,17 +12,17 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 app.use("/schoolImages", express.static(path.join(__dirname, "schoolImages")));
 
-// const url=`mysql://root:LXiuWfGRyAxFdQkGgubGKbOzLzteXVbo@mysql-ypvj.railway.internal:3306/railway`;
+const url="mysql://root:LXiuWfGRyAxFdQkGgubGKbOzLzteXVbo@caboose.proxy.rlwy.net:10020/railway";
 
-// const db = mysql.createConnection(url);
-const db = mysql.createConnection({
-  host: "mysql-ypvj.railway.internal",
-  user:"root",
-  password: "LXiuWfGRyAxFdQkGgubGKbOzLzteXVbo",
-  database: "railway",
-  port: 3306
+const db = mysql.createConnection(url);
+// const db = mysql.createConnection({
+//   host: "mysql-ypvj.railway.internal",
+//   user:"root",
+//   password: "LXiuWfGRyAxFdQkGgubGKbOzLzteXVbo",
+//   database: "railway",
+//   port: 3306
   
-});
+// });
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => cb(null, "schoolImages/"),
