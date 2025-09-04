@@ -12,8 +12,16 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 app.use("/schoolImages", express.static(path.join(__dirname, "schoolImages")));
 
-const urldb = `mysql://root:njbLsktzxmpDRpGysynZDrwUEVhPkuOx@mysql.railway.internal:3306/schoolDB`
-const db = mysql.createConnection(urldb);
+// const url="mysql://root:njbLsktzxmpDRpGysynZDrwUEVhPkuOx@mysql.railway.internal:3306/schoolDB"
+
+const db = mysql.createConnection({
+  host: "localhost",
+  user:"root",
+  password: "",
+  database: "schoolDB",
+  port: 3306
+  
+});
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => cb(null, "schoolImages/"),
