@@ -46,7 +46,7 @@ app.post("/api/addSchool", upload.single("image"), (req, res) => {
 
 // Get all schools
 app.get("/api/schools", (req, res) => {
-  db.query("SELECT id, name, address, city,state,contact, image FROM schools", (err, result) => {
+  db.query("SELECT id, name, address, city,state,contact, image, email_id FROM schools", (err, result) => {
     if (err) return res.status(500).json(err);
     res.json(result);
   });
